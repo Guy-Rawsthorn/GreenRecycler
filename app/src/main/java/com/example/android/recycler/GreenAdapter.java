@@ -1,9 +1,3 @@
-package com.example.android.recycler;
-
-/**
- * Created by guyrawsthorn on 07/09/2017.
- */
-
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -19,6 +13,8 @@ package com.example.android.recycler;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.example.android.recycler;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,12 +35,16 @@ import android.widget.TextView;
  * If you don't like our puns, we named this Adapter GreenAdapter because its
  * contents are green.
  */
+// COMPLETED (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
 public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
 
     private static final String TAG = GreenAdapter.class.getSimpleName();
 
+    // COMPLETED (1) Add a private int variable called mNumberItems
     private int mNumberItems;
 
+    // COMPLETED (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
+    // COMPLETED (3) Store the numberOfItems parameter in mNumberItems
     /**
      * Constructor for GreenAdapter that accepts a number of items to display and the specification
      * for the ListItemClickListener.
@@ -55,6 +55,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         mNumberItems = numberOfItems;
     }
 
+    // COMPLETED (5) Override the onCreateViewHolder method
+    // COMPLETED (6) Create and return a new NumberViewHolder within this method
     /**
      *
      * This gets called when each new ViewHolder is created. This happens when the RecyclerView
@@ -80,6 +82,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         return viewHolder;
     }
 
+    // COMPLETED (7) Override onBindViewHolder
+    // COMPLETED (8) Within onBindViewHolder, call holder.bind and pass in the position
     /**
      * OnBindViewHolder is called by the RecyclerView to display the data at the specified
      * position. In this method, we update the contents of the ViewHolder to display the correct
@@ -96,6 +100,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         holder.bind(position);
     }
 
+    // COMPLETED (9) Override getItemCount and return the number of items to display
     /**
      * This method simply returns the number of items to display. It is used behind the scenes
      * to help layout our Views and for animations.
@@ -124,6 +129,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
          */
         public NumberViewHolder(View itemView) {
             super(itemView);
+
             listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
         }
 
@@ -137,4 +143,3 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         }
     }
 }
-
